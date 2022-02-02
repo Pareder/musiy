@@ -1,5 +1,9 @@
+import Artist from './Artist'
 import Loader from './Loader'
+import PlayCount from './PlayCount'
 
 export {
-  Loader
+  Artist,
+  Loader,
+  PlayCount
 }

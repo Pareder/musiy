@@ -8,6 +8,7 @@ import config from '@/config'
 import AppLayout from '@/layouts/AppLayout/AppLayout'
 import Home from '@/pages/Home'
 import Artist from '@/pages/Artist'
+import Album  from '@/pages/Album'
 import '@/index.scss'
 
 const client = new ApolloClient({
@@ -23,6 +24,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="/" element={<AppLayout />}>
             <Route path="artist/:mbid" element={<Artist />} />
+            <Route path="album/:mbid" element={<Album />} />
           </Route>
         </Routes>
       </ApolloProvider>

@@ -2,9 +2,8 @@ import {
   useQuery,
   gql
 } from '@apollo/client'
-import { Loader } from '@/components'
-import Artist from './types'
-import ArtistBlock from './components/ArtistBlock/ArtistBlock'
+import { Artist as ArtistBlock, Loader } from '@/components'
+import Artist from '@/types/Artist'
 import classes from './Home.module.scss'
 
 const TOP_ARTISTS = gql`

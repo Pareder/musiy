@@ -1,0 +1,19 @@
+@import "@/styles/variables";
+
+.table {
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 15px 10px;
+  }
+
+  th {
+    text-align: left;
+    color: $font-color-secondary;
+  }
+
+  td {
+    border-top: 1px solid $secondary;
+  }
+}

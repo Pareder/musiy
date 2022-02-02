@@ -3,9 +3,11 @@ import {
   useQuery,
   gql
 } from '@apollo/client'
-import { ArtistData } from '@/pages/Artist/types'
 import { Loader } from '@/components'
+import { ArtistData } from './types'
 import Tags from './components/Tags'
+import Albums from './components/Albums'
+import SimilarArtists from './components/SimilarArtists'
 import classes from './Artist.module.scss'
 
 const ARTIST = gql`
@@ -23,6 +25,24 @@ const ARTIST = gql`
         theAudioDB {
           biography
           thumbnail
+        }
+        lastFM {
+          topAlbums(first: 10) {
+            nodes {
+              mbid
+              title
+              image
+              playCount
+            }
+          }
+          similarArtists {
+            nodes {
+              mbid
+              name
+              image
+              playCount
+            }
+          }
         }
       }
     }
@@ -42,6 +62,8 @@ export default function Artist() {
   })
   const artist = data?.lookup?.artist
   const tags = (artist?.tags?.nodes || []).slice(0, 5)
+  const albums = artist?.lastFM?.topAlbums?.nodes || []
+  const similarArtists = artist?.lastFM?.similarArtists?.nodes || []
 
   return loading ? <Loader/> : (
     <div>
@@ -53,6 +75,8 @@ export default function Artist() {
           <p className={classes.bio}>{artist?.theAudioDB?.biography}</p>
         </div>
       </div>
+      <Albums albums={albums}/>
+      <SimilarArtists artists={similarArtists}/>
     </div>
   )
 }

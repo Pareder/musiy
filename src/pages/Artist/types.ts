@@ -1,5 +1,14 @@
+import Artist from '@/types/Artist'
+
 export interface Tag {
   name: string
+}
+
+export interface Album {
+  mbid: string
+  title: string
+  image: string
+  playCount: number
 }
 
 export interface ArtistData {
@@ -12,5 +21,13 @@ export interface ArtistData {
   theAudioDB: {
     biography: string
     thumbnail: string
+  }
+  lastFM: {
+    topAlbums: {
+      nodes: Album[]
+    }
+    similarArtists: {
+      nodes: Artist[]
+    }
   }
 }
