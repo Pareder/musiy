@@ -4,8 +4,20 @@ $secondary: #dd5658;
 $font-color: #e7e7e8;
 $font-color-secondary: darken($font-color, 30%);
 
+$background: #18171e;
+$background-light: #201f26;
+$text: #fdfdff;
+$text-dark: #76757c;
+$green: #aef44d;
+$purple: #5c07f5;
+
+
 // Screen sizes
 $screen-sm-min: 576px;
 $screen-md-min: 768px;
 $screen-lg-min: 992px;
 $screen-xl-min: 1200px;
+
+
+// Widths
+$menu-width: 320px;

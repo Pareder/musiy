@@ -5,8 +5,10 @@ import {
   ApolloProvider,
 } from '@apollo/client'
 import config from '@/config'
-import AppLayout from '@/layouts/AppLayout/AppLayout'
+import AppLayout from '@/layouts/AppLayout'
+import InnerLayout from '@/layouts/InnerLayout'
 import Home from '@/pages/Home'
+import Songs from '@/pages/Songs'
 import Artist from '@/pages/Artist'
 import Album  from '@/pages/Album'
 import '@/index.scss'
@@ -21,10 +23,17 @@ export default function App() {
     <BrowserRouter>
       <ApolloProvider client={client}>
         <Routes>
-          <Route index element={<Home />} />
           <Route path="/" element={<AppLayout />}>
-            <Route path="artist/:mbid" element={<Artist />} />
-            <Route path="album/:mbid" element={<Album />} />
+            <Route index element={<Home />} />
+            <Route path="/" element={<InnerLayout />}>
+              <Route path="songs" element={<Songs />} />
+              <Route path="artists">
+                <Route path=":mbid" element={<Artist />} />
+              </Route>
+              <Route path="albums">
+                <Route path=":mbid" element={<Album />} />
+              </Route>
+            </Route>
           </Route>
         </Routes>
       </ApolloProvider>

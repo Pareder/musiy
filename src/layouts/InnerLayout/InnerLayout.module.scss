@@ -1,0 +1,33 @@
+@import "@/styles/variables";
+
+.wrapper {
+  padding: 32px;
+}
+
+.header {
+  margin-bottom: 50px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  transition: transform 0.5s;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  outline: none;
+  border: none;
+  background: none;
+  color: $font-color;
+  font-size: 24px;
+  cursor: pointer;
+
+  &:hover {
+    .icon {
+      transform: translateX(-8px);
+    }
+  }
+}

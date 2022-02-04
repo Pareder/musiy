@@ -11,7 +11,7 @@ interface ConditionalWrapperProps {
 
 function ConditionalWrapper({ mbid, children }: ConditionalWrapperProps) {
   return mbid
-    ? <Link to={`/album/${mbid}`} className={classes.album}>{children}</Link>
+    ? <Link to={`/albums/${mbid}`} className={classes.album}>{children}</Link>
     : <div className={classes.album}>{children}</div>
 }
 
