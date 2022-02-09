@@ -1,0 +1,62 @@
+@import "@/styles/variables";
+
+.outer {
+  padding: 1px;
+  border-radius: 20px;
+
+  & + & {
+    margin-top: 10px;
+  }
+
+  &:hover {
+    background: linear-gradient(to right, $green, $purple);
+  }
+}
+
+.track {
+  max-width: 100%;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  background-color: $background;
+  border-radius: 20px;
+}
+
+.index {
+  width: 30px;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.img {
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.info {
+  padding-right: 20px;
+  overflow: hidden;
+}
+
+.title {
+  margin: 0;
+  font-weight: 500;
+  text-overflow: ellipsis;
+}
+
+.artist {
+  margin: 6px 0 0;
+  color: $text-dark;
+  text-overflow: ellipsis;
+}
+
+.title,
+.artist {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.duration {
+  margin-left: auto;
+  color: $text-dark;
+}

@@ -1,9 +1,7 @@
-@import "@/styles/variables";
-
 .wrapper {
   display: flex;
 }
 
 .content {
-  width: calc(100% - $menu-width);
+  width: 100%;
 }

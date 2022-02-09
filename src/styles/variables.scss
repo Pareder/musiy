@@ -1,6 +1,5 @@
 // Colors
 $primary: #181822;
-$secondary: #dd5658;
 $font-color: #e7e7e8;
 $font-color-secondary: darken($font-color, 30%);
 
@@ -10,6 +9,7 @@ $text: #fdfdff;
 $text-dark: #76757c;
 $green: #aef44d;
 $purple: #5c07f5;
+$secondary: $green;
 
 
 // Screen sizes
@@ -17,6 +17,7 @@ $screen-sm-min: 576px;
 $screen-md-min: 768px;
 $screen-lg-min: 992px;
 $screen-xl-min: 1200px;
+$screen-xxl-min: 1920px;
 
 
 // Widths

@@ -7,12 +7,16 @@ import classes from './Menu.module.scss'
 
 export default function Menu() {
   return (
-    <div className={classes.menu}>
-      <h1>Musiy</h1>
-      <Link to="/" icon={home} className={classes.link}>Home</Link>
-      <Link to="/songs" icon={crown} className={classes.link}>Top Songs</Link>
-      <Link to="/albums" icon={album} className={classes.link}>Albums</Link>
-      <Link to="/artists" icon={artist} className={classes.link}>Artists</Link>
-    </div>
+    <>
+      <input type="checkbox" id="menu__checkbox" className={classes.input}/>
+      <label htmlFor="menu__checkbox" className={classes.label}/>
+      <div className={classes.menu}>
+        <h1 className={classes.title}>Musiy</h1>
+        <Link to="/" icon={home} className={classes.link}>Home</Link>
+        <Link to="/songs" icon={crown} className={classes.link}>Top Songs</Link>
+        <Link to="/albums" icon={album} className={classes.link}>Albums</Link>
+        <Link to="/artists" icon={artist} className={classes.link}>Artists</Link>
+      </div>
+    </>
   )
 }

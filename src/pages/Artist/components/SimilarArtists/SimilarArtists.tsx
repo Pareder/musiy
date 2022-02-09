@@ -11,7 +11,7 @@ export default function SimilarArtists({ artists }: SimilarArtistsProps) {
     <>
       <h2>Similar Artists</h2>
       <div className={classes.container}>
-        {artists.map(artist => <ArtistBlock key={artist.mbid} {...artist}/>)}
+        {artists.map(artist => <ArtistBlock key={artist.mbid || artist.name} {...artist} className={classes.artist}/>)}
       </div>
     </>
   )

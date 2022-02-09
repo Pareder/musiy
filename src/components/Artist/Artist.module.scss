@@ -4,14 +4,6 @@
 .artist {
   width: 50%;
   padding: 15px;
-
-  @include md {
-    width: 33%;
-  }
-
-  @include lg {
-    width: 20%;
-  }
 }
 
 .meta {

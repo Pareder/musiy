@@ -1,9 +1,89 @@
 @import "@/styles/variables";
+@import "@/styles/mixins";
 
 .menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
   width: $menu-width;
   padding: 0 20px;
+  background-color: $background;
   border-right: 1px solid $background-light;
+  box-shadow: $background-light -5px 0px 20px 5px;
+  transform: translateX(-$menu-width);
+  transition: transform 0.5s ease;
+
+  @include xl {
+    position: static;
+    flex-shrink: 0;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.input {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+
+  &:checked ~ .menu {
+    transform: translateX(0);
+  }
+
+  &:checked + .label {
+    &:before {
+      top: 5px;
+      transform: rotate(135deg);
+    }
+
+    &:after {
+      transform: rotate(-135deg);
+    }
+  }
+}
+
+.label {
+  position: absolute;
+  top: 30px;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  user-select: none;
+  z-index: 3;
+
+  &::before, &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    left: 20px;
+    width: 32px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: $secondary;
+    transition: transform 0.3s ease;
+  }
+
+  &::before {
+    top: -5px;
+  }
+
+  &::after {
+    top: 5px;
+  }
+
+  @include xl {
+    display: none;
+  }
+}
+
+.title {
+  text-align: right;
+
+  @include xl {
+    text-align: left;
+  }
 }
 
 .link {
@@ -29,7 +109,7 @@
 }
 
 .icon {
-  width: 20px;
+  width: 30px;
   height: 20px;
   margin-right: 10px;
 }

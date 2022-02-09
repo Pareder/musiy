@@ -1,4 +1,22 @@
+@import "@/styles/mixins";
+
 .container {
   display: flex;
   flex-wrap: wrap;
+}
+
+.artist {
+  width: 50%;
+
+  @include md {
+    width: 33%;
+  }
+
+  @include xl {
+    width: 20%;
+  }
+
+  @include xxl {
+    width: 10%;
+  }
 }
