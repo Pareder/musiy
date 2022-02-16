@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
-import { gql, useQuery } from '@apollo/client'
+import { gql } from '@apollo/client'
 import { Loader, Tracks } from '@/components'
+import useScrollLoad from '@/utils/useScrollLoad'
 import TopTracksData from './types'
 import mergeData from './utils/mergeData'
 
@@ -34,26 +34,8 @@ const TOP_TRACKS = gql`
 `
 
 export default function Songs() {
-  const { loading, data, previousData, refetch } = useQuery<TopTracksData>(TOP_TRACKS)
-  const mergedData = mergeData(previousData, data)
-  const chart = mergedData?.lastFM?.chart
-  const endCursor = chart?.topTracks?.pageInfo?.endCursor
-  const topTracks = chart?.topTracks?.nodes || []
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (document.body.offsetHeight - window.innerHeight - window.scrollY < 500) {
-        refetch({
-          after: endCursor
-        })
-        window.removeEventListener('scroll', handleScroll)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [endCursor])
+  const { loading, data } = useScrollLoad<TopTracksData>(TOP_TRACKS, mergeData, 'lastFM.chart.topTracks.pageInfo.endCursor')
+  const topTracks = data?.lastFM?.chart?.topTracks?.nodes || []
 
   return loading ? <Loader/> : (
     <>

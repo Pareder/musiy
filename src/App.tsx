@@ -9,6 +9,7 @@ import AppLayout from '@/layouts/AppLayout'
 import InnerLayout from '@/layouts/InnerLayout'
 import Home from '@/pages/Home'
 import Songs from '@/pages/Songs'
+import Artists from '@/pages/Artists'
 import Artist from '@/pages/Artist'
 import Album  from '@/pages/Album'
 import '@/index.scss'
@@ -27,9 +28,8 @@ export default function App() {
             <Route index element={<Home />} />
             <Route path="/" element={<InnerLayout />}>
               <Route path="songs" element={<Songs />} />
-              <Route path="artists">
-                <Route path=":mbid" element={<Artist />} />
-              </Route>
+              <Route path="artists" element={<Artists />} />
+              <Route path="artists/:mbid" element={<Artist />} />
               <Route path="albums">
                 <Route path=":mbid" element={<Album />} />
               </Route>
