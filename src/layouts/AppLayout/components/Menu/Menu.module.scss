@@ -14,6 +14,7 @@
   box-shadow: $background-light -5px 0px 20px 5px;
   transform: translateX(-$menu-width);
   transition: transform 0.5s ease;
+  overflow: auto;
 
   @include xl {
     position: static;

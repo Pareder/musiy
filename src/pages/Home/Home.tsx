@@ -59,7 +59,11 @@ export default function Home() {
   const topArtists = chart?.topArtists?.nodes || []
   const topTracks = chart?.topTracks?.nodes || []
 
-  return loading ? <Loader/> : (
+  if (loading) {
+    return <Loader/>
+  }
+
+  return (
     <div className={classes.content}>
       <div className={classes.tracks}>
         <div className={classes.heading}>

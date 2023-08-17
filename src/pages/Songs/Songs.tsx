@@ -37,7 +37,11 @@ export default function Songs() {
   const { loading, data } = useScrollLoad<TopTracksData>(TOP_TRACKS, mergeData, 'lastFM.chart.topTracks.pageInfo.endCursor')
   const topTracks = data?.lastFM?.chart?.topTracks?.nodes || []
 
-  return loading ? <Loader/> : (
+  if (loading) {
+    return <Loader/>
+  }
+
+  return (
     <>
       <h1>Top Songs</h1>
       <div>

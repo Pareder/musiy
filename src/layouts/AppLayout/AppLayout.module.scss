@@ -1,7 +1,9 @@
 .wrapper {
+  height: 100vh;
   display: flex;
 }
 
 .content {
   width: 100%;
+  overflow: auto;
 }

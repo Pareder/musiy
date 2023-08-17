@@ -18,11 +18,11 @@ export interface ArtistData {
   tags: {
     nodes: Tag[]
   }
-  theAudioDB: {
-    biography: string
-    thumbnail: string
-  }
   lastFM: {
+    image: string
+    biography: {
+      summaryHTML: string
+    }
     topAlbums: {
       nodes: Album[]
     }

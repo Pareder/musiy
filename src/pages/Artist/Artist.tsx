@@ -22,11 +22,11 @@ const ARTIST = gql`
             name
           }
         }
-        theAudioDB {
-          biography
-          thumbnail
-        }
         lastFM {
+          image
+          biography {
+            summaryHTML
+          }
           topAlbums(first: 10) {
             nodes {
               mbid
@@ -65,14 +65,21 @@ export default function Artist() {
   const albums = artist?.lastFM?.topAlbums?.nodes || []
   const similarArtists = artist?.lastFM?.similarArtists?.nodes || []
 
-  return loading ? <Loader/> : (
+  if (loading) {
+    return <Loader/>
+  }
+
+  return (
     <div>
       <div className={classes.info}>
-        <img src={artist?.theAudioDB?.thumbnail} alt={artist?.name} className={classes.img}/>
+        <img src={artist?.lastFM?.image} alt={artist?.name} className={classes.img}/>
         <div className={classes.description}>
           <h2 className={classes.name}>{artist?.name}</h2>
           <Tags tags={tags}/>
-          <p className={classes.bio}>{artist?.theAudioDB?.biography}</p>
+          <p
+            className={classes.bio}
+            dangerouslySetInnerHTML={{ __html: artist?.lastFM?.biography?.summaryHTML || '' }}
+          />
         </div>
       </div>
       <Albums albums={albums}/>

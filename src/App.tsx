@@ -4,7 +4,6 @@ import {
   InMemoryCache,
   ApolloProvider,
 } from '@apollo/client'
-import config from '@/config'
 import AppLayout from '@/layouts/AppLayout'
 import InnerLayout from '@/layouts/InnerLayout'
 import Home from '@/pages/Home'
@@ -15,14 +14,14 @@ import Album  from '@/pages/Album'
 import '@/index.scss'
 
 const client = new ApolloClient({
-  uri: config.graphqlURL,
+  uri: import.meta.env.VITE_BACKEND_URL,
   cache: new InMemoryCache()
 });
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<AppLayout />}>
             <Route index element={<Home />} />
@@ -36,7 +35,7 @@ export default function App() {
             </Route>
           </Route>
         </Routes>
-      </ApolloProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </ApolloProvider>
   )
 }
