@@ -6,7 +6,6 @@ import {
 import { Loader } from '@/components'
 import { AlbumData } from './types'
 import Recordings from './components/Recordings'
-import classes from './Album.module.scss'
 
 const ALBUM = gql`
   query GetAlbum($mbid: MBID!) {

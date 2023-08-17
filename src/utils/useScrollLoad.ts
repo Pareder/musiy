@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { DocumentNode, useQuery } from '@apollo/client'
 import get from './get'
 
-export default function useScrollLoad<TData = any>(query: DocumentNode, mergeFn: (oldData?: TData, newData?: TData) => TData | undefined, endPath: string) {
+export default function useScrollLoad<TData = unknown>(query: DocumentNode, mergeFn: (oldData?: TData, newData?: TData) => TData | undefined, endPath: string) {
   const { data, previousData, refetch, ...other } = useQuery<TData>(query)
   const mergedData = mergeFn(previousData, data)
   const endCursor = get(mergedData, endPath)

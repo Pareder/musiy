@@ -11,7 +11,7 @@
   padding: 0 20px;
   background-color: $background;
   border-right: 1px solid $background-light;
-  box-shadow: $background-light -5px 0px 20px 5px;
+  box-shadow: $background-light -5px 0 20px 5px;
   transform: translateX(-$menu-width);
   transition: transform 0.5s ease;
   overflow: auto;
@@ -21,27 +21,6 @@
     flex-shrink: 0;
     transform: none;
     box-shadow: none;
-  }
-}
-
-.input {
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-
-  &:checked ~ .menu {
-    transform: translateX(0);
-  }
-
-  &:checked + .label {
-    &:before {
-      top: 5px;
-      transform: rotate(135deg);
-    }
-
-    &:after {
-      transform: rotate(-135deg);
-    }
   }
 }
 
@@ -76,6 +55,27 @@
 
   @include xl {
     display: none;
+  }
+}
+
+.input {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+
+  &:checked ~ .menu {
+    transform: translateX(0);
+  }
+
+  &:checked + .label {
+    &::before {
+      top: 5px;
+      transform: rotate(135deg);
+    }
+
+    &::after {
+      transform: rotate(-135deg);
+    }
   }
 }
 

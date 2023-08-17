@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function get(obj: any, path: string, defaultValue?: any) {
   if (!obj) {
     return defaultValue
