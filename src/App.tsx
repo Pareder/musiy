@@ -10,6 +10,7 @@ import Home from '@/pages/Home'
 import Songs from '@/pages/Songs'
 import Artists from '@/pages/Artists'
 import Artist from '@/pages/Artist'
+import Albums from '@/pages/Albums'
 import Album  from '@/pages/Album'
 import '@/index.scss'
 
@@ -30,6 +31,7 @@ export default function App() {
               <Route path="artists" element={<Artists />} />
               <Route path="artists/:mbid" element={<Artist />} />
               <Route path="albums">
+                <Route index element={<Albums />} />
                 <Route path=":mbid" element={<Album />} />
               </Route>
             </Route>
